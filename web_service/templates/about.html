@@ -1,0 +1,12 @@
+{%extends "base.html"%}
+
+{%block title%}
+About us
+{%endblock title%}
+
+{%block content %}
+	{%for info in about_text %}
+		<h1>{{info.item_title}}</h1>
+		<h1>{{info.item_text}}</h1>
+	{%endfor%}
+{%endblock content %}
