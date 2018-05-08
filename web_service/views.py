@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import AboutInfo, News
+from .models import News, StaticPage
 
 
 def index(request):
 	news = News.objects.order_by('pub_date')[:3]
 	context ={
-	'about_text' : AboutInfo.objects.order_by('pub_date')[:1],
+	'about_text' : StaticPage.objects.get(slug = 'About'),
 	'news': news,
 
 	}
@@ -15,7 +15,7 @@ def index(request):
 def about(request):
 
 	context ={
-	'about_text' : AboutInfo.objects.order_by('pub_date')[:1],
+	'about_text' : StaticPage.objects.get(slug='About'),
 	
 	}
 	return render(request, 'about.html', context)

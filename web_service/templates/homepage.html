@@ -1,19 +1,32 @@
+
 {%extends "base.html"%}
 {%block title%} MTSD{%endblock title%}
+{% load staticfiles %}
 
 {%block content%}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-7 content">
+			
+				<h4>{{about_text.item_title}}</h4>
+				<p>{{about_text.item_text |truncatewords_html:25}}</p>
+				<a href="{%url 'about'%}"> Read more</a>
 
-	{%for info in about_text %}
-	<h1>{{info.item_title}}</h1>
-	<p>{{info.item_text |truncatewords_html:25}}</p>
-	<a href="{%url 'about'%}">More about us</a>
-	{%endfor%}
 
-	<b>_______________________________________________</b>
-	{%for item in news%}
-		<a href="{%url 'single_news' pk=item.pk%}"><h2>{{item.item_title}}</h2></a>
-		<p>{{item.item_text |truncatewords_html:14}}</p>
-		<p>{{item.pub_date |date:"d M Y" }}</p>
-		<hr>
-	{%endfor%}
+				{%for item in news%}
+					<a href="{%url 'single_news' pk=item.pk%}"><h2>{{item.item_title}}</h2></a>
+					<p>{{item.item_text |truncatewords_html:14}}</p>
+					<p>{{item.pub_date |date:"d M Y" }}</p>
+					<hr>
+				{%endfor%}
+			</div>	
+			<div class="col-md-5">
+				<div class="banner">
+					<img src="{% static 'images/prost.gif' %}">
+				</div>
+			</div>
+		</div>
+
+	</div>
+
 {%endblock content%}
