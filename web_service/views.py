@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import News, StaticPage
 
@@ -19,6 +19,12 @@ def about(request):
 	
 	}
 	return render(request, 'about.html', context)
+
+def charity(request):
+	context = {
+		'charity_text' : get_object_or_404(StaticPage, slug = 'Charity')
+	}
+	return render(request, 'charity.html', context)
 
 def news(request):
 	news = News.objects.order_by('pub_date')[:20]

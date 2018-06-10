@@ -9,5 +9,5 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('news/', views.news, name='news'),
     url(r'^news/(?P<pk>\d+)/$', views.single_news, name='single_news'),
-
+    path('charity/', views.charity, name='charity'), 
 ]
