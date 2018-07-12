@@ -1,6 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class Graduator(object):
+    name = models.CharField(max_length=50)        
+    surname = models.CharField(max_length=50)        
+    patronymic = models.CharField(max_length=50)
+    country = models.CharField(max_length=50)
+    city = models.CharField(max_length=50)
+    work_place = models.CharField(max_length=250)
+    help_with = models.CharField(max_length=500)
+    help_with = models.CharField(max_length=500)
+    need_help_with = models.CharField(max_length=500)
+    email = models.EmailField(max_length=240)
+
 
 class NewsCategory(models.Model):
     cat_name = models.CharField(max_length=150)
