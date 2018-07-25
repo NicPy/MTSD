@@ -5,14 +5,14 @@ from django.dispatch import receiver
 
 class UserProfile(models.Model):
     user        = models.OneToOneField(User, on_delete = models.CASCADE)
-    country     = models.CharField(max_length=50, blank = True)
-    city        = models.CharField(max_length=50, blank = True)
-    work_place  = models.CharField(max_length=250, blank = True)
-    help_with   = models.CharField(max_length=500, blank = True)
-    help_with   = models.CharField(max_length=500, blank = True)
-    need_help_with = models.CharField(max_length=500, blank = True)
-    email       = models.EmailField(max_length=240, blank = True)
-    contact_info = models.CharField(max_length=400, blank = True)
+    country     = models.CharField(max_length=50)
+    city        = models.CharField(max_length=50)
+    work_place  = models.CharField(max_length=250)
+    help_with   = models.CharField(max_length=500)
+    need_help_with = models.CharField(max_length=500)
+    contact_info = models.CharField(max_length=400)
+    age = models.IntegerField(default=0)
+    # avatar = models.ImageField(upload_to="photos", default=)
     # registration_date = models.DateTimeField('date published')
 
 @receiver(post_save, sender=User)

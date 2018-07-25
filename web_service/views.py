@@ -51,7 +51,7 @@ def profile(request):
 			profile.user = request.user
 			profile.save()
 			# form.save()
-			return redirect("index")
+			return redirect("/profile/")
 		else:
 			HttpResponse("SMTH IS Wrong")
 	else:
