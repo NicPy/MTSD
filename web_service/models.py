@@ -12,6 +12,8 @@ class UserProfile(models.Model):
     need_help_with = models.CharField(max_length=500)
     contact_info = models.CharField(max_length=400)
     age = models.IntegerField(default=0)
+    photo = models.ImageField(null=True, upload_to='images' )
+
     # avatar = models.ImageField(upload_to="photos", default=)
     # registration_date = models.DateTimeField('date published')
 

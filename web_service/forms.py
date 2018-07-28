@@ -23,11 +23,11 @@ class Profile(forms.ModelForm):
     help_with   = forms.CharField(widget = forms.Textarea)
     need_help_with = forms.CharField(widget = forms.Textarea)
     contact_info = forms.CharField(widget=forms.Textarea)
-    # photo = forms.ImageField()
+    photo = forms.ImageField()
 
     class Meta:
         model = UserProfile
-        fields = ("country", "city", "work_place", "help_with", "need_help_with", "contact_info", "age")
+        fields = ("country", "city", "work_place", "help_with", "need_help_with", "contact_info", "age", "photo")
 
 
     # def save(self, commit=True):

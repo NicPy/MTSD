@@ -45,7 +45,7 @@ def profile(request):
 			"city": user.userprofile.city,
 			}
 	if request.method == "POST":
-		form = Profile(request.POST, instance = user.userprofile )
+		form = Profile(request.POST, request.FILES,  instance = user.userprofile )
 		if form.is_valid():
 			profile = form.save(commit=False)
 			profile.user = request.user

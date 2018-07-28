@@ -119,5 +119,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'MTSD/media')
+
 LOGIN_REDIRECT_URL = 'index'
+
 AUTH_PROFILE_MODULE = 'web_service.UserProfile'
