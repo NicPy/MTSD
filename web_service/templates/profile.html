@@ -1,14 +1,36 @@
 {%extends "base.html"%}
 
 {%block content%}
-	<form method="POST" enctype="multipart/form-data">
-		{% csrf_token %}
-		{{form.as_p}}
-		<button type="submit">Change</button>
-	</form>
+	<div class="container">
+		<div class="row edit-profile-form">
+				
+			<form method="POST" enctype="multipart/form-data">
+				{% csrf_token %}
+				{{form.as_p}}
+				<button type="submit">Change</button>
+			</form>
 
-	<h1>{{user.username}}</h1>
-	<h1>{{user.userprofile.country}}</h1>
-	<img src="{{user.userprofile.photo.url}}" style="width: 240px">
-	<h1>{{user.id}}</h1>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<ul class="profile list-unstyled">
+					<li><p><span class="title">Name: </span><span class="separator"></span>{{user.username}}</p></li>
+					<li><p><span class="title">Country: </span><span class="separator"></span>{{user.userprofile.country}}</p></li>
+					<li><p><span class="title">City: </span><span class="separator"></span>{{user.userprofile.city}}</p></li>
+					<li><p><span class="title">Workplace: </span><span class="separator"></span>{{user.userprofile.work_place}}</p></li>
+					<li><p><span class="title">I can help with: </span><span class="separator"></span>{{user.userprofile.help_with}}</p></li>
+					
+					<li><p><span class="title">Would be happy if you will help me with: </span><span class="separator"></span>{{user.userprofile.need_help_with}}</p></li>
+
+					<li><p><span class="title">You can find me here: </span><span class="separator"></span>{{user.userprofile.contact_info}}</p></li>
+				</ul>
+			</div>
+			<div class="col-md-6 avatar">
+				{%if user.userprofile.photo%}
+					<img src="{{user.userprofile.photo.url}}" style="width: 240px">
+				{%endif%}
+			</div>
+
+		</div>
+	</div>
 {%endblock%}
